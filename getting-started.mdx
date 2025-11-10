@@ -1,0 +1,104 @@
+---
+title: Getting Started
+
+description: Step-by-step guide to set up and begin using Paperguide for your documentation needs
+---
+
+## Installation and Setup
+
+You start your Paperguide journey by creating an account and configuring your first space. This process takes less than five minutes and requires no technical expertise. Once complete, you access a dashboard to manage all documentation.
+
+<Columns cols={2}>
+  <Card title="Account Creation" icon="user" href="#">
+    Sign up with email or SSO for quick onboarding.
+  </Card>
+  <Card title="Space Setup" icon="folder" href="#">
+    Organize projects into isolated spaces from the start.
+  </Card>
+</Columns>
+
+<Steps>
+  <Step title="Create Account" icon="user">
+    Go to the Paperguide site and enter your details to register.
+    
+    <Callout kind="tip">
+      Use a work email for team integrations.
+    </Callout>
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox and click the verification link to activate.
+  </Step>
+  <Step title="Create First Space" icon="folder">
+    From the dashboard, select `New Space` and name it for your project.
+  </Step>
+</Steps>
+
+## Initial Configuration
+
+After setup, you customize settings like themes and integrations. Paperguide supports dark mode and connects to tools such as Slack for notifications.
+
+<Tabs>
+  <Tab title="Basic Settings" icon="settings">
+    Adjust profile preferences and enable two-factor authentication.
+    
+    ```javascript
+    // Update user settings via API
+    const updateSettings = async (settings) => {
+      await fetch('/api/user/settings', {
+        method: 'PATCH',
+        body: JSON.stringify(settings),
+      });
+    };
+    ```
+  </Tab>
+  <Tab title="Integrations" icon="plug">
+    Link GitHub or Google Drive to import external content.
+    
+    <Expandable title="Integration Steps">
+      Authorize the app and select repositories to sync.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+<CodeGroup tabs="Bash,Node.js">
+  ```bash
+  # Install CLI for advanced management
+  npm install -g paperguide-cli
+  paperguide login
+  ```
+  ```javascript
+  // Node.js script to create space
+  const paperguide = require('paperguide-sdk');
+  const client = new paperguide.Client({ apiKey: 'your-key' });
+  await client.spaces.create({ name: 'My Project' });
+  ```
+</CodeGroup>
+
+## First Document
+
+You create your initial page by clicking `New Page` in the space. Use the editor for text, code, and embeds. Preview changes in real-time to ensure accuracy.
+
+<Callout kind="success">
+  Save frequently to leverage auto-versioning for rollback options.
+</Callout>
+
+## Troubleshooting
+
+If you encounter issues, check the status page or contact support. Common fixes include clearing cache or verifying API keys.
+
+| Issue | Solution | Time to Fix |
+|-------|----------|-------------|
+| Login fails | Reset password | `<1 min` |
+| Sync errors | Reauthorize app | `2-5 min` |
+| Page not loading | Refresh browser | `<1 min` |
+
+<ExpandableGroup>
+  <Expandable title="What if I forget my API key?">
+    Generate a new one from the settings panel without losing data.
+  </Expandable>
+  <Expandable title="Can I export docs?">
+    Yes, export to PDF or Markdown formats for offline use.
+  </Expandable>
+</ExpandableGroup>
+
+This guide equips you to build effective documentation quickly. Explore advanced features next for deeper customization.

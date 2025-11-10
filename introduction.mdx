@@ -1,0 +1,100 @@
+---
+title: Introduction
+
+description: Overview of Paperguide and its core capabilities for managing project documentation
+---
+
+## Overview
+
+Paperguide provides a centralized platform to organize, manage, and collaborate on your project documentation. You create spaces for different projects, add pages with rich content, and invite team members to contribute seamlessly. This tool streamlines documentation workflows, ensuring consistency and accessibility across your organization.
+
+<Columns cols={3}>
+  <Card title="Create Spaces" icon="folder" href="#">
+    Set up dedicated areas for each project to keep documentation organized and easy to navigate.
+  </Card>
+  <Card title="Rich Editing" icon="edit" href="#">
+    Use markdown, embeds, and custom components to build comprehensive guides without coding.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="#">
+    Invite contributors, assign roles, and track changes to maintain high-quality docs.
+  </Card>
+</Columns>
+
+## Getting Started
+
+You begin by signing up for an account and creating your first space. Once set up, import existing docs or start fresh with templates. Paperguide supports version history, so you track all changes over time.
+
+<Steps>
+  <Step title="Sign Up" icon="user">
+    Visit the Paperguide website and create your account using your email.
+  </Step>
+  <Step title="Create Space" icon="folder">
+    Navigate to the dashboard and click the new space button to start organizing.
+  </Step>
+  <Step title="Add Pages" icon="file-text">
+    Within your space, add pages using the editor for content creation and management.
+  </Step>
+</Steps>
+
+<Callout kind="info">
+  For best results, define your documentation structure early to avoid reorganization later.
+</Callout>
+
+## Key Features
+
+Explore core functionalities that make Paperguide powerful for teams. You integrate with tools like GitHub for syncing code docs and use search for quick access.
+
+<Tabs>
+  <Tab title="Spaces" icon="folder">
+    Spaces act as containers for related documentation. You customize permissions per space to control access.
+    
+    ```javascript
+    // Example API call to create a space
+    const createSpace = async (name) => {
+      const response = await fetch('/api/spaces', {
+        method: 'POST',
+        body: JSON.stringify({ name }),
+      });
+      return response.json();
+    };
+    ```
+  </Tab>
+  <Tab title="Pages" icon="file-text">
+    Pages support MDX for interactive content. You embed diagrams and code snippets directly.
+    
+    <Expandable title="Advanced Page Options">
+      Enable versioning and comments on pages for better collaboration.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Fetch documentation pages
+  const getPages = async (spaceId) => {
+    const pages = await fetch(`/api/spaces/${spaceId}/pages`);
+    return pages.json();
+  };
+  ```
+  ```python
+  # Fetch documentation pages
+  import requests
+  response = requests.get(f'/api/spaces/{space_id}/pages')
+  pages = response.json()
+  ```
+</CodeGroup>
+
+## Use Cases
+
+Teams use Paperguide for API docs, user guides, and internal wikis. You scale from small projects to enterprise needs with robust search and export options.
+
+<ExpandableGroup>
+  <Expandable title="How do I import existing docs?" default-open="false">
+    Upload markdown files or connect to Git repos for automatic syncing.
+  </Expandable>
+  <Expandable title="What about permissions?">
+    Set read/write access at space and page levels for secure collaboration.
+  </Expandable>
+</ExpandableGroup>
+
+This setup ensures your documentation stays current and accessible, boosting team productivity.
